@@ -1,7 +1,3 @@
-/*void changeColor(char color)
-{
-	setTouchLEDColor(ledRG, color);
-}*/
 void tilt(char side) //tilts the seesaw attatchment to either the left or the right depending on the m&m colo
 {
 	// 0 is equal to left
@@ -17,7 +13,7 @@ void tilt(char side) //tilts the seesaw attatchment to either the left or the ri
 		//setTouchLEDColor(ledRG, colorGreen); //change led to green
 		delay(50);
 		motor[seesaw] = 0;
-	}
+	} //void is pseudo-ish rn
 }
 task sortSide()
 {
