@@ -22,11 +22,11 @@ task sortSide()
 		// 0 is equal to left
 		// 1 is equal to right
 		if(getColorName(colorSense) == colorGreen){ //if the color is sensed as say, red, then tilt to the left and deposit the m&m
-			tilt(left); //void tilt to tilt seesaw left at a speed of 63
+			tilt('left'); //void tilt to tilt seesaw left at a speed of 63
 			displayCenteredBigTextLine(2, "GREEN");
 		}
 		if(getColorName(colorSense) == colorRed){ //if the color is sensed as say, green, then tilt to the right and deposit the m&m
-			tilt(right); //void tilt to tilt seesaw right speed of 63
+			tilt('right'); //void tilt to tilt seesaw right speed of 63
 			displayCenteredBigTextLine(2, "RED");
 		}
 		else{
