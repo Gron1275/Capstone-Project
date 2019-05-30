@@ -1,0 +1,103 @@
+//string byteCode = getColorName(colorSense);
+string z;
+
+void conveyorLeft(int speed, int timeSeconds){
+	int negSpeed; //0Find negative of the given number because going to left needs negative values
+	negSpeed = speed - speed - speed; //Find negative of number
+	setMotorSpeed(seesaw, negSpeed); 
+	int timeMS;
+	timeMS = timeSeconds * 1000;
+	delay(timeMS);
+	setMotorSpeed(seesaw, 0);
+}
+void conveyorRight(int speed, int timeSeconds){
+	setMotorSpeed(seesaw, speed);
+	int timeMS;
+	timeMS = timeSeconds * 1000;
+	delay(timeMS);
+	setMotorSpeed(seesaw, 0);
+}
+task colorSort(){
+	while(true){
+		string z = getColorName(colorSense);
+		
+		if(z == "\x01"){
+			setTouchLEDColor(feedbackLED, colorRedViolet);
+			eraseUserScreenArea();
+			conveyorLeft(20, 0.5);
+			displayCenteredTextLine(1, "Red Violet");
+			displayCenteredTextLine(3, "bytecode [x01]");
+		}
+		if(z == "\x02"){
+			setTouchLEDColor(feedbackLED, colorRed);
+			eraseUserScreenArea();
+			conveyorLeft(20, 0.5);
+			displayCenteredTextLine(1, "Red");
+			displayCenteredTextLine(3, "bytecode [x02]");
+		}
+		if(z == "\x03"){
+			setTouchLEDColor(feedbackLED, colorDarkOrange);
+			eraseUserScreenArea();
+			conveyorLeft(20, 0.5);
+			displayCenteredTextLine(1, "Dark Orange");
+			displayCenteredTextLine(3, "bytecode [x03]");
+		}
+		if(z == "\x04"){
+			setTouchLEDColor(feedbackLED, colorOrange);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Orange");
+			displayCenteredTextLine(3, "bytecode [x04]");
+		}
+		if(z == "\x05"){
+			setTouchLEDColor(feedbackLED, colorDarkYellow);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Dark Yellow");
+			displayCenteredTextLine(3, "bytecode [x05]");
+		}
+		if(z == "\x06"){
+			setTouchLEDColor(feedbackLED, colorYellow);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Yellow");
+			displayCenteredTextLine(3, "bytecode [x06]");
+		}
+		if(z == "\x07"){
+			setTouchLEDColor(feedbackLED, colorLimeGreen);
+			eraseUserScreenArea();
+			conveyorRight(20, 0.5);
+			displayCenteredTextLine(1, "Lime Green");
+			displayCenteredTextLine(3, "bytecode [x07]");
+		}
+		if(z == "\x08"){
+			setTouchLEDColor(feedbackLED, colorGreen);
+			eraseUserScreenArea();
+			conveyorRight(20, 0.5);
+			displayCenteredTextLine(1, "Green");
+			displayCenteredTextLine(3, "bytecode [x08]");
+		}
+		if(z == "\x09"){
+			setTouchLEDColor(feedbackLED, colorBlueGreen);
+			eraseUserScreenArea();
+			conveyorRight(20, 0.5);
+			displayCenteredTextLine(1, "Blue Green");
+			displayCenteredTextLine(3, "bytecode [x09]");
+		}
+		if(z == "\x10"){
+			setTouchLEDColor(feedbackLED, colorBlue);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Blue");
+			displayCenteredTextLine(2, "bytecode [x10]");
+		}
+		if(z == "\x11"){
+			setTouchLEDColor(feedbackLED, colorDarkBlue);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Dark Blue");
+			displayCenteredTextLine(2, "bytecode [x11]");
+		}
+		if(z == "\x12"){
+			setTouchLEDColor(feedbackLED, colorViolet);
+			eraseUserScreenArea();
+			displayCenteredTextLine(1, "Violet");
+			displayCenteredTextLine(2, "bytecode [x12]");
+		}
+	}
+}
