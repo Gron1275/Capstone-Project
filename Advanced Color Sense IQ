@@ -1,10 +1,9 @@
-//string byteCode = getColorName(colorSense);
 string z;
 
 void conveyorLeft(int speed, int timeSeconds){
 	int negSpeed; //0Find negative of the given number because going to left needs negative values
 	negSpeed = speed - speed - speed; //Find negative of number
-	setMotorSpeed(seesaw, negSpeed); 
+	setMotorSpeed(seesaw, negSpeed);
 	int timeMS;
 	timeMS = timeSeconds * 1000;
 	delay(timeMS);
@@ -14,13 +13,13 @@ void conveyorRight(int speed, int timeSeconds){
 	setMotorSpeed(seesaw, speed);
 	int timeMS;
 	timeMS = timeSeconds * 1000;
-	delay(timeMS);
+	delay(timeMS); //This might not actually matter because the while looped task won't wait for the delay to finish before moving on
 	setMotorSpeed(seesaw, 0);
 }
 task colorSort(){
 	while(true){
 		string z = getColorName(colorSense);
-		
+
 		if(z == "\x01"){
 			setTouchLEDColor(feedbackLED, colorRedViolet);
 			eraseUserScreenArea();
@@ -31,7 +30,7 @@ task colorSort(){
 		if(z == "\x02"){
 			setTouchLEDColor(feedbackLED, colorRed);
 			eraseUserScreenArea();
-			conveyorLeft(20, 0.5);
+			conveyorLeft(20, 0.5); //I feel like the task should actually be put after this line so that the delay actually
 			displayCenteredTextLine(1, "Red");
 			displayCenteredTextLine(3, "bytecode [x02]");
 		}
